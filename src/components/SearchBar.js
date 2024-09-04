@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import {normalize, scaleVertical} from '../utils/dimensionUtils';
 import {getInterFont} from '../utils/FontUtils/interFontHelper';
 
-const SearchBar = props => {
+const SearchBar = ({onSearch = () => {}, placeHolder="search"}) => {
   const [searchText, setSearchText] = useState('');
   const textInputRef = useRef(null);
 
@@ -18,12 +18,13 @@ const SearchBar = props => {
 
   const handleSearch = (value) => {
     setSearchText(value)
-    props.onSearch(value)
+    onSearch(value)
   }
   return (
     <Pressable style={styles.searchInputContainer} onPress={handleFocus}>
       <FontAwesomeIcon icon={faSearch} color="#25C0FF" size={normalize(22)} />
       <TextInput
+      placeholder={placeHolder}
         style={styles.searchInput}
         ref={textInputRef}
         value={searchText}
@@ -33,12 +34,9 @@ const SearchBar = props => {
   );
 };
 
-SearchBar.default = {
-  onSearch: () => {},
-};
-
 SearchBar.prototype = {
   onSearch: PropTypes.func,
+  placeHolder: PropTypes.string
 };
 
 export default SearchBar;

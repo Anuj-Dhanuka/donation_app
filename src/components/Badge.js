@@ -8,21 +8,19 @@ import {normalize, scaleVertical} from '../utils/dimensionUtils';
 
 const Badge = props => {
   const [width, setWidth] = useState(0);
-  const textRef = useRef(null);
 
-  const paddingHorizontal = 10
+  const paddingHorizontal = normalize(10)
   const badgeWidth = {
-    width: normalize(paddingHorizontal * 2 + width)
+    width: paddingHorizontal * 2 + width
   }
   return (
     <View
       style={[styles.badge, badgeWidth]}
       >
       <Text
-      onTextLayout={(event) => {
-        setWidth(event.nativeEvent.lines[0].width)
+      onLayout={(event) => {
+        setWidth(event.nativeEvent.layout.width)
       }}
-        ref={textRef}
         style={[styles.title]}>
         {props.title}
       </Text>
@@ -39,7 +37,7 @@ export default Badge;
 const styles = StyleSheet.create({
   badge: {
     backgroundColor: '#145855',
-    height: scaleVertical(22),
+    padding: normalize(6),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: normalize(50),

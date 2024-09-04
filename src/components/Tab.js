@@ -10,19 +10,18 @@ const Tab = props => {
   const [width, setWidth] = useState(0);
   const textRef = useRef(null);
 
-  const paddingHorizontal = 33 
+  const paddingHorizontal = 33;
   const tabWidth = {
-    width: normalize(paddingHorizontal * 2 + width)
-  }
+    width: normalize(paddingHorizontal * 2 + width),
+  };
   return (
     <Pressable
       style={[styles.tab, props.isInactive && styles.inActiveTab, tabWidth]}
-      disabled={props.isInactive}
-      onPress={props.onPress}>
+      onPress={() => props.onPress(props.tabId)}>
       <Text
-      onTextLayout={(event) => {
-        setWidth(event.nativeEvent.lines[0].width)
-      }}
+        onTextLayout={event => {
+          setWidth(event.nativeEvent.lines[0].width);
+        }}
         ref={textRef}
         style={[styles.title, props.isInactive && styles.inActiveTitle]}>
         {props.title}
@@ -31,12 +30,8 @@ const Tab = props => {
   );
 };
 
-Tab.default = {
-  isInactive: false,
-  onPress: () => {},
-};
-
 Tab.propTypes = {
+  tabId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   isInactive: PropTypes.bool,
   onPress: PropTypes.func,
