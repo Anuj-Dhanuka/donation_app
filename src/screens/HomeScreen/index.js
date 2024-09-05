@@ -23,7 +23,10 @@ import SingleDonationItem from '../../components/SingleDonationItem';
 import {normalize, scaleVertical} from '../../utils/dimensionUtils';
 
 //redux
-import {updateFirstName} from '../../redux/reducers/UserReducer';
+import {
+  resetUserToInitialState,
+  updateFirstName,
+} from '../../redux/reducers/UserReducer';
 import {getInterFont} from '../../utils/FontUtils/interFontHelper';
 import {
   resetCategories,
@@ -36,6 +39,7 @@ import {
 
 //Navigation
 import Routes from '../../Navigation/Routes';
+import { logOut } from '../../utils/ApiUtils/User';
 
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
@@ -82,6 +86,11 @@ const Home = ({navigation}) => {
     dispatch(updateSelectedCategoryId(value));
   };
 
+  const handleLogout = async() => {
+    await logOut()
+    dispatch(resetUserToInitialState());
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -89,14 +98,20 @@ const Home = ({navigation}) => {
           <View>
             <Text style={styles.headerIntroText}>Hello,</Text>
             <View style={styles.username}>
-              <Header title={`${user.firstName} ${user.lastName[0]}.👋`} />
+              <Header title={`${user.displayName} 👋`} />
             </View>
           </View>
+          <View>
           <Image
             source={{uri: user.profileImage}}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <Pressable onPress={handleLogout}>
+            <Header title="Logout" type={3} color="blue" />
+          </Pressable>
+          </View>
+          
         </View>
         <View style={styles.searchBarContainer}>
           <SearchBar />
@@ -167,9 +182,11 @@ const Home = ({navigation}) => {
                     donationTitle={eachItem.name}
                     uri={eachItem.image}
                     donationItemId={eachItem.donationItemId}
-                    onPress={(donationItemId) => {
+                    onPress={donationItemId => {
                       dispatch(updateSelectedDonationId(donationItemId));
-                      navigation.navigate(Routes.SingleDonationItem, {categoryInformation})
+                      navigation.navigate(Routes.SingleDonationItem, {
+                        categoryInformation,
+                      });
                     }}
                   />
                 </View>
