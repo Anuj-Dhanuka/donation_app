@@ -9,14 +9,19 @@ import {
   View,
 } from 'react-native';
 
+//dimension utils
+import {normalize, scaleVertical} from '../../utils/dimensionUtils';
+
+//font utils
+import { getInterFont } from '../../utils/FontUtils/interFontHelper';
+
+//navigations
+import Routes from '../../Navigation/Routes';
+
 //components
 import BackButton from '../../components/BackButton';
-
-//utils
-import {normalize, scaleVertical} from '../../utils/dimensionUtils';
 import Badge from '../../components/Badge';
 import Header from '../../components/Header';
-import { getInterFont } from '../../utils/FontUtils/interFontHelper';
 import Button from '../../components/Button';
 
 const SingleDonationItemScreen = ({navigation, route}) => {
@@ -28,6 +33,10 @@ const SingleDonationItemScreen = ({navigation, route}) => {
   const handleBackButton = () => {
     navigation.goBack();
   };
+
+  const handleDonateButton = () => {
+    navigation.navigate(Routes.Payment)
+  }
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
@@ -43,7 +52,7 @@ const SingleDonationItemScreen = ({navigation, route}) => {
         <Text style={styles.description}>{donationItemInformation.description}</Text>
       </ScrollView>
       <View style={styles.button}>
-        <Button title='Donate'  />
+        <Button title='Donate' onPress={handleDonateButton}  />
       </View>
     </SafeAreaView>
   );

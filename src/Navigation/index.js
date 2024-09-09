@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useDispatch, useSelector} from 'react-redux';
+import { useSelector} from 'react-redux';
 
 //routes
 import Routes from './Routes'; 
@@ -10,8 +9,7 @@ import Home from '../screens/HomeScreen';
 import SingleDonationItemScreen from '../screens/SingleDonationItemScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
-import { resetUserToInitialState } from '../redux/reducers/UserReducer';
-import { logOut } from '../utils/ApiUtils/User';
+import PaymentScreen from '../screens/PaymentScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +23,7 @@ const AuthenticatedRoute = () => {
         name={Routes.SingleDonationItem}
         component={SingleDonationItemScreen}
       />
+      <Stack.Screen name={Routes.Payment} component={PaymentScreen} />
     </Stack.Navigator>
   );
 };

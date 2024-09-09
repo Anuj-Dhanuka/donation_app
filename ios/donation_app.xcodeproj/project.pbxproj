@@ -69,6 +69,8 @@
 		36ACAE38FC3544C783087EB2 /* Inter_28pt-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63A6A7CC3D5498AAB500F94 /* Inter_28pt-Thin.ttf */; };
 		C19419BCD3044B11AC046404 /* Inter_28pt-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A97A24314E164772A1A8ACEC /* Inter_28pt-ThinItalic.ttf */; };
 		997F155E28164A7A81EE1CB3 /* interFontHelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 52376B2EC65A4432A4861211 /* interFontHelper.js */; };
+		56B978761A704213AF684ED3 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8476B3AF54726AD1AB410 /* BootSplash.storyboard */; };
+		3002491E34254D3E8953460A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D880EAF35AE84021B42A42F3 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,8 @@
 		C63A6A7CC3D5498AAB500F94 /* Inter_28pt-Thin.ttf */ = {isa = PBXFileReference; name = "Inter_28pt-Thin.ttf"; path = "../src/assets/fonts/inter_font/Inter_28pt-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A97A24314E164772A1A8ACEC /* Inter_28pt-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Inter_28pt-ThinItalic.ttf"; path = "../src/assets/fonts/inter_font/Inter_28pt-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		52376B2EC65A4432A4861211 /* interFontHelper.js */ = {isa = PBXFileReference; name = "interFontHelper.js"; path = "../src/assets/fonts/inter_font/interFontHelper.js"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9CB8476B3AF54726AD1AB410 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "donation_app/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D880EAF35AE84021B42A42F3 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "donation_app/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				9CB8476B3AF54726AD1AB410 /* BootSplash.storyboard */,
+				D880EAF35AE84021B42A42F3 /* Colors.xcassets */,
 			);
 			name = donation_app;
 			sourceTree = "<group>";
@@ -474,6 +480,8 @@
 				36ACAE38FC3544C783087EB2 /* Inter_28pt-Thin.ttf in Resources */,
 				C19419BCD3044B11AC046404 /* Inter_28pt-ThinItalic.ttf in Resources */,
 				997F155E28164A7A81EE1CB3 /* interFontHelper.js in Resources */,
+				56B978761A704213AF684ED3 /* BootSplash.storyboard in Resources */,
+				3002491E34254D3E8953460A /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
